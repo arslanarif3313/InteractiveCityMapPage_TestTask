@@ -1,0 +1,96 @@
+.navigation-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-bg-secondary);
+  border: 2px solid var(--color-gold);
+  border-radius: 8px;
+  color: var(--color-text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-gold-brown);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  z-index: 0;
+}
+
+.nav-button:hover::before {
+  opacity: 0.2;
+}
+
+.nav-button:hover {
+  border-color: var(--color-gold-light);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+.nav-button:active {
+  transform: translateY(0);
+}
+
+.nav-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.nav-button span,
+.nav-button svg {
+  position: relative;
+  z-index: 1;
+}
+
+.nav-button svg {
+  transition: transform var(--transition-fast);
+}
+
+.nav-button-prev:hover svg {
+  transform: translateX(-3px);
+}
+
+.nav-button-next:hover svg {
+  transform: translateX(3px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navigation-buttons {
+    gap: var(--spacing-sm);
+  }
+  
+  .nav-button {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.9rem;
+  }
+  
+  .nav-button span {
+    display: none;
+  }
+  
+  .nav-button svg {
+    width: 20px;
+    height: 20px;
+  }
+}

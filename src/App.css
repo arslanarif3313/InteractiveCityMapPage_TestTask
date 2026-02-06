@@ -1,0 +1,117 @@
+.app {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-bg-primary);
+}
+
+/* Header - Overlay at top */
+.app-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: var(--spacing-md);
+  z-index: 50;
+  animation: fadeIn var(--transition-slow);
+  background: linear-gradient(to bottom, rgba(10, 10, 10, 0.9) 0%, rgba(10, 10, 10, 0) 100%);
+  pointer-events: none;
+}
+
+.app-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: var(--gradient-gold-brown);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--spacing-xs);
+  text-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+  letter-spacing: -0.5px;
+}
+
+.app-subtitle {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+/* Main content - Fullscreen */
+.app-main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Compass container - Overlay top-right */
+.compass-container {
+  position: absolute;
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
+  z-index: 100;
+  animation: fadeIn var(--transition-slow) 0.2s;
+}
+
+/* Controls container - Overlay bottom center */
+.controls-container {
+  position: absolute;
+  bottom: var(--spacing-lg);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  animation: fadeIn var(--transition-slow) 0.4s;
+}
+
+/* Footer - Hidden in fullscreen mode */
+.app-footer {
+  display: none;
+}
+
+/* Mobile responsive layout */
+@media (max-width: 768px) {
+  .app-header {
+    padding: var(--spacing-sm);
+  }
+
+  .app-title {
+    font-size: 1.75rem;
+  }
+
+  .app-subtitle {
+    font-size: 0.85rem;
+  }
+
+  /* Mobile: Compass top-right but smaller */
+  .compass-container {
+    top: 80px;
+    right: var(--spacing-sm);
+  }
+
+  /* Controls at bottom */
+  .controls-container {
+    bottom: var(--spacing-md);
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .app-title {
+    font-size: 2rem;
+  }
+
+  .compass-container {
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+  }
+}
+
+/* Large screens */
+@media (min-width: 1400px) {
+  .app-main {
+    max-width: 1600px;
+  }
+}
